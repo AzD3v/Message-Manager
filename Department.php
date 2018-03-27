@@ -6,11 +6,8 @@ class Department {
 	/**
 	 * TODO Auto-generated comment.
 	 */
-	Static $NumDepartment = 0;
-	/**
-	 * TODO Auto-generated comment.
-	 */
-	private $IdDepartment;
+	Static $IdDepartment = 0;
+	static $nDepartments = 0;
 	/**
 	 * TODO Auto-generated comment.
 	 */
@@ -21,8 +18,9 @@ class Department {
 	 */
 	public function __construct($name) {
 		
-		$this->id = Department::$NumDepartment++;
+		$this->id = Department::$IdDepartment++;
 		$this->name = $name;
+		++Department::$nDepartments;
 	}
 
 	/**
