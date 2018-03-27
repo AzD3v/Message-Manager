@@ -1,82 +1,66 @@
 <?php
-/**
- * TODO Auto-generated comment.
- */
-class message {
-	/**
-	 * TODO Auto-generated comment.
-	 */
-	private $numMessage;
-	/**
-	 * TODO Auto-generated comment.
-	 */
+include 'User.php';
+
+class Message {
+	
+	static $IdMessage = 0;
+	
+	static $nMessages = 0;
+	
 	private $to;
-	/**
-	 * TODO Auto-generated comment.
-	 */
+	
 	private $from;
-	/**
-	 * TODO Auto-generated comment.
-	 */
+	
 	private $subject;
-	/**
-	 * TODO Auto-generated comment.
-	 */
+	
 	private $text;
-	/**
-	 * TODO Auto-generated comment.
-	 */
+	
 	private $date_hour;
-	/**
-	 * TODO Auto-generated comment.
-	 */
+	
 	private $attachment;
 
-	/**
-	 * TODO Auto-generated comment.
-	 */
+	
 	public function __construct($to, $from, $subject, $text, $date_hour) {
+		
+		$this->id = Message::$IdMessage++;
+		$this->to = array();
+		$this->from = array();
+		$this->subject = $subject;
+		$this->text = $text;
+		$this->date_hour = $date_hour;
+		++Message::$nMessages;
 	}
 
-	/**
-	 * TODO Auto-generated comment.
-	 */
+
 	public function getTo() {
-		return null;
+		
+		return $this->to;
 	}
 
-	/**
-	 * TODO Auto-generated comment.
-	 */
 	public function getFrom() {
-		return null;
+		
+		return $this->from;
 	}
 
-	/**
-	 * TODO Auto-generated comment.
-	 */
 	public function getSubject() {
-		return "";
+		
+		return $this->subject;
 	}
 
-	/**
-	 * TODO Auto-generated comment.
-	 */
 	public function getText() {
-		return "";
+		
+		return $this->Text
 	}
 
-	/**
-	 * TODO Auto-generated comment.
-	 */
 	public function getDate_hour() {
-		return null;
+		
+		return $this->date_hour;
 	}
 
-	/**
-	 * TODO Auto-generated comment.
-	 */
 	public function getAttachment() {
-		return "";
+		
+		return $this->attachment;
 	}
 }
+
+?>
