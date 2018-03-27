@@ -30,7 +30,7 @@ class User {
 	private $outbox;
 
 	
-	public function __construct($name, $surname, $username, $password) {
+	public function __construct($name, $surname,$middle_name, $username, $password, $cargo) {
 		
 		$this->id = User::$IdUser++;
 		$this->idDepartment = array();
@@ -46,6 +46,7 @@ class User {
 		++User::$nUsers;
 	}
 
+	#Getters
 	
 	public function getName() {
 		
@@ -93,11 +94,20 @@ class User {
 		
 		return $this->outbox;
 	}
-
+	
+	#setters
+	
 	public function setPassword($password) {
 		
 		return $this->password = $password;
 		
 	}
+	
+	public function addContactToList($user){
+		
+	$this->contactList[] = $user;
+	
+	}
+	
 }
 ?>
