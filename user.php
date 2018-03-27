@@ -2,11 +2,15 @@
 /**
  * TODO Auto-generated comment.
  */
-class user {
+ 
+require 'Department.php';
+require 'message.php';
+ 
+class User {
 	/**
 	 * TODO Auto-generated comment.
 	 */
-	private $NumUserID;
+	Static $NumUserID = 0;
 	/**
 	 * TODO Auto-generated comment.
 	 */
@@ -56,54 +60,90 @@ class user {
 	 * TODO Auto-generated comment.
 	 */
 	public function __construct($name, $surname, $username, $password) {
+		
+		$this->id = User::$NumUserID++;
+		$this->idDepartment = array();
+		$this->name = $name;
+		$this->surname = $surname;
+		$this->middle_name = $middle_name;
+		$this->username = $username;
+		$this->password = $password;
+		$this->cargo = $cargo;
+		$this->contactList = array();
+		$this->inbox = array();
+		$this->outbox = array();
 	}
 
 	/**
 	 * TODO Auto-generated comment.
 	 */
 	public function getName() {
-		return "";
+		
+		return $this->name;
+	}
+	
+	public function getMiddle_name() {
+		
+		return $this->middle_name;	
+	}
+	
+	public function getSurname() {
+		
+		return $this->surname ;
+	}
+	
+	public function getFullName() {
+		
+		$fullname = ''.$this->name.','.$this->middle_name.''.$this->surname'';
+		
+		return $fullname;
 	}
 
 	/**
 	 * TODO Auto-generated comment.
 	 */
 	public function getUsername() {
-		return "";
+		
+		return $this->username;
 	}
 
 	/**
 	 * TODO Auto-generated comment.
 	 */
 	public function getCargo() {
-		return "";
+		
+		return $this->cargo;
 	}
 
 	/**
 	 * TODO Auto-generated comment.
 	 */
 	public function getContactList() {
-		return null;
+		
+		return $this->contactList;
 	}
 
 	/**
 	 * TODO Auto-generated comment.
 	 */
 	public function getInbox() {
-		return null;
+		
+		return $this->inbox;
 	}
 
 	/**
 	 * TODO Auto-generated comment.
 	 */
 	public function getOutbox() {
-		return null;
+		return $this->outbox;
 	}
 
 	/**
 	 * TODO Auto-generated comment.
 	 */
 	public function setPassword($password) {
-		return "";
+		
+		return $this->password = $password;
+		
 	}
 }
