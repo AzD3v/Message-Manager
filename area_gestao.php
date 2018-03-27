@@ -18,22 +18,9 @@
 
 
 	<!-- Título da página -->
-	<title>BusiChat | Página inicial</title>
+	<title>BusiChat | Área de Gestão</title>
 </head>
 <body>
-
-<!-- Landing page -->
-<div class="jumbotron jumbotron-fluid">
-	<h1 class="display-4">Bem-vindo à BusiChat</h1>
-  <p class="lead">Aqui poderás comunicar com todos os teus colegas de trabalho de forma facilitada e dinâmica</p>
-
-	<!-- Botão de login -->
-	<div id="login_register_buttons" class="d-flex flex-row justify-flex-end">
-	  <a class="nav-link d-flex" href="#"><li id="login_button" class="nav-item">Login</li></a>
-
-		<!-- Botão de registo -->
-	  <a class="nav-link d-flex" href="#"><li id="register_button" class="nav-item">Registo</li></a>
-	</div>
 
 </body>
 </html>
