@@ -1,11 +1,13 @@
 <?php
-include 'User.php';
+
 
 class Message {
 	
 	static $IdMessage = 0;
 	
 	static $nMessages = 0;
+	
+	private $id;
 	
 	private $to;
 	
@@ -49,7 +51,7 @@ class Message {
 
 	public function getText() {
 		
-		return $this->Text
+		return $this->text;
 	}
 
 	public function getDate_hour() {
