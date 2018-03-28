@@ -40,7 +40,7 @@
 		</div>
 		<div class="modal-body">
 
-			<form action="area_gestao.php" method="post">
+			<form action="login.php" method="post">
 
 					<div class="form-group">
 						<!-- Nome de utilizador -->

@@ -1,4 +1,42 @@
 <!DOCTYPE html>
+
+<?php
+
+session_start();
+
+include'user.php';
+
+    $filename = 'data/users.csv';
+
+      $file = fopen($filename, 'r'); //ler o ficheiro csv
+      while (!feof($file))
+
+      {
+
+        $data = fgetcsv($file, 0, ";"); //ir buscar dados ao ficheiro csv
+
+        if($data == "") {
+
+            break;
+
+        }
+		
+		
+		if($data[0] == $_SESSION['user']) {
+			
+			
+		  $user = new User($data[2], $data[3], $data[4], $data[5], $data[6], $data[7]);
+
+		  
+		  $nome = $user->getName();
+		  
+		
+		}
+		
+		
+	  }
+
+?>
 <html lang="en">
 <head>
 
@@ -26,7 +64,7 @@
 	<div id="area_gestao">
 
 		<!-- Área de Gestão -->
-		<h1 class="text-center">Bem-vindo à sua Área de Gestão (nome de utilizador)</h1>
+		<h1 class="text-center">Bem-vindo à sua Área de Gestão, <?php echo $nome ?></h1>
 
 		<!-- Menu lateral -->
 		<div id="sideMenu" class="sidenav">
@@ -36,7 +74,7 @@
 			<a href="#"><i class="fas fa-envelope-open fa-1x"></i> Histórico de mensagens recebidas</a>
 			<a href="#"><i class="far fa-envelope fa-1x"></i> Histórico de mensagens enviadas</a>
 			<a href="#"><i class="fas fa-cogs fa-1x"></i> Editar dados da conta</a>
-			<a href="#"><i class="fas fa-sign-out-alt fa-1x"></i> Encerrar Sessão</a>
+			<a href="logout.php"><i class="fas fa-sign-out-alt fa-1x"></i> Encerrar Sessão</a>
 		</div>
 
 		<span onclick="openNav()" class="gerir_conta">&#9776; Gerir conta</span>
