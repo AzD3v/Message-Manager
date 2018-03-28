@@ -1,13 +1,13 @@
 <?php
  
-require 'Department.php';
-require 'message.php';
+include 'Department.php';
+include 'message.php';
  
 class User {
 	
 	Static $IdUser = 0;
-
-	Static $nUsers = 0;
+	
+	private $id;
 	
 	private $idDepartment;
 	
@@ -30,7 +30,7 @@ class User {
 	private $outbox;
 
 	
-	public function __construct($name, $surname,$middle_name, $username, $password, $cargo) {
+	public function __construct($name, $middle_name, $surname, $username, $password, $cargo) {
 		
 		$this->id = User::$IdUser++;
 		$this->idDepartment = array();
@@ -43,7 +43,7 @@ class User {
 		$this->contactList = array();
 		$this->inbox = array();
 		$this->outbox = array();
-		++User::$nUsers;
+		
 	}
 
 	#Getters
@@ -65,7 +65,7 @@ class User {
 	
 	public function getFullName() {
 		
-		$fullname = ''.$this->name.','.$this->middle_name.''.$this->surname'';
+		$fullname = ''.$this->name.','.$this->middle_name.''.$this->surname.'';
 		
 		return $fullname;
 	}
@@ -107,6 +107,11 @@ class User {
 		
 	$this->contactList[] = $user;
 	
+	}
+	
+	public function addDepartment($department){
+		
+		$this->idDepartment[] = new Department($name);
 	}
 	
 }
