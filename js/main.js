@@ -42,3 +42,20 @@ function outsideClick(e) {
 		}
 
 }
+
+/* MENU LATERAL DA ÁREA DE GESTÃO */
+
+// Função para abrir o menu de navegação lateral
+function openNav() {
+
+		document.getElementById('sideMenu').style.width = "450px";
+
+}
+
+// Função para fecha o menu de navegação lateral através do botão de fechar
+function closeNav() {
+
+		document.getElementById('sideMenu').style.width = "0";
+
+}
+
