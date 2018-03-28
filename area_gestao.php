@@ -16,11 +16,35 @@
 	<!-- Link da google fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
+	<!-- Font Awesome icons -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
 	<!-- Título da página -->
 	<title>BusiChat | Área de Gestão</title>
 </head>
 <body>
+	<div id="area_gestao">
+
+		<!-- Área de Gestão -->
+		<h1 class="text-center">Bem-vindo à sua Área de Gestão (nome de utilizador)</h1>
+
+		<!-- Menu lateral -->
+		<div id="sideMenu" class="sidenav">
+			<a href="javascript:void(0)" class="closeBtnGestao" onclick="closeNav()">&times;</a>
+			<a href="#"><i class="fas fa-comment fa-1x"></i> Escrever nova mensagem</a>
+			<a href="#"><i class="fas fa-users fa-1x"></i> Gerir contactos</a>
+			<a href="#"><i class="fas fa-envelope-open fa-1x"></i> Histórico de mensagens recebidas</a>
+			<a href="#"><i class="far fa-envelope fa-1x"></i> Histórico de mensagens enviadas</a>
+			<a href="#"><i class="fas fa-cogs fa-1x"></i> Editar dados da conta</a>
+			<a href="#"><i class="fas fa-sign-out-alt fa-1x"></i> Encerrar Sessão</a>
+		</div>
+
+		<span onclick="openNav()" class="gerir_conta">&#9776; Gerir conta</span>
+
+	</div>
+
+<!-- JavaScript -->
+<script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>

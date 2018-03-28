@@ -16,6 +16,8 @@
 	<!-- Link da google fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
+	<!-- Font Awesome icons -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
 	<!-- Título da página -->
 	<title>BusiChat | Página inicial</title>
@@ -42,12 +44,14 @@
 
 					<div class="form-group">
 						<!-- Nome de utilizador -->
+						<i class="fas fa-user fa-2x"></i>
 						<label for="username">Nome de utilizador</label>
 						<input type="text" name="username" placeholder="Introduza o seu nome de utilizador" class="form-control col-sm-6">
 				</div>
 
 				<div class="form-group">
 						<!-- Palavra-passe -->
+						<i class="fas fa-key fa-2x"></i>
 						<label for="password">Palavra-passe</label>
 						<input type="password" name="password" placeholder="Introduza a sua palavra-passe" class="form-control col-sm-6">
 				</div>
