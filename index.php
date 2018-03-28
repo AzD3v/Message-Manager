@@ -49,7 +49,7 @@
 				<div class="form-group">
 						<!-- Palavra-passe -->
 						<label for="password">Palavra-passe</label>
-						<input type="text" name="password" placeholder="Introduza a sua palavra-passe" class="form-control col-sm-6">
+						<input type="password" name="password" placeholder="Introduza a sua palavra-passe" class="form-control col-sm-6">
 				</div>
 
 				<!-- Botão de submissão -->
