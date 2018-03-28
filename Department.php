@@ -1,38 +1,31 @@
 <?php
-/**
- * TODO Auto-generated comment.
- */
+
 class Department {
-	/**
-	 * TODO Auto-generated comment.
-	 */
-	private $NumDepartment;
-	/**
-	 * TODO Auto-generated comment.
-	 */
-	private $IdDepartment;
-	/**
-	 * TODO Auto-generated comment.
-	 */
-	private $department;
+	
+	Static $IdDepartment = 0;
+	static $nDepartments = 0;
+	
+	private $name;
 
-	/**
-	 * TODO Auto-generated comment.
-	 */
-	public function __construct($department) {
+	
+	public function __construct($name) {
+		
+		$this->id = Department::$IdDepartment++;
+		$this->name = $name;
+		++Department::$nDepartments;
 	}
 
-	/**
-	 * TODO Auto-generated comment.
-	 */
+	
 	public function getDepartment() {
-		return "";
+		
+		return $this->name;
 	}
 
-	/**
-	 * TODO Auto-generated comment.
-	 */
-	public function setDepartment($department) {
-		return "";
+	
+	public function setDepartment($name) {
+		
+		return $this->name = $name;
 	}
 }
+
+?>
