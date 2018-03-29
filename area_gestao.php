@@ -9,12 +9,12 @@
 		# OPERAÇÕES COM O FICHEIRO CSV
     $filename = 'data/users.csv';
 
-      $file = fopen($filename, 'r'); //ler o ficheiro csv
+      $file = fopen($filename, 'r'); //ler o ficheiro .csv
       while (!feof($file))
 
       {
 
-        $data = fgetcsv($file, 0, ";"); //ir buscar dados ao ficheiro csv
+        $data = fgetcsv($file, 0, ";"); //ir buscar dados ao ficheiro .csv
 
         if($data == "") {
 
@@ -79,7 +79,7 @@
 
 		<!-- Shortcut para enviar nova mensagem -->
 		<div class="nova_msg_card">
-			<div class="imgBox"><h3 class="text-center">Shortcut de mensagem rápida</h3><img src="img/nova_msg.jpg">Envie uma nova mensagem!</div>
+			<div class="imginbox"><h3 class="text-center">Shortcut de mensagem rápida</h3><img src="img/nova_msg.jpg">Envie uma nova mensagem!</div>
 			<div class="detalhes_nova_msg">
 				<div class="conteudo_nova_msg">
 
@@ -104,7 +104,21 @@
 				</div>
 			</div>
 		</div>
+
+	<!-- Shortcut da caixa de saída -->
+	<div class="outboxFlip">
+		<div class="outboxFlipFront"><h3 class="text-center">Caixa de saída</h3></div>
+		<div class="outboxFlipBack"><h5 class="text-center">Mensagens enviadas</h5></div>
 	</div>
+
+	<!-- Shortcut da caixa de entrada -->
+	<div class="inboxFlip">
+		<div class="inboxFlipFront"><h3 class="text-center">Caixa de entrada</h3></div>
+		<div class="inboxFlipBack"><h5 class="text-center">Mensagens recebidas</h5></div>
+	</div>
+
+
+</div>
 
 <!-- JavaScript -->
 <script type="text/javascript" src="js/main.js"></script>
