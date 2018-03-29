@@ -20,20 +20,20 @@ include'user.php';
             break;
 
         }
-		
-		
+
+
 		if($data[0] == $_SESSION['user']) {
-			
-			
+
+
 		  $user = new User($data[2], $data[3], $data[4], $data[5], $data[6], $data[7]);
 
-		  
+
 		  $nome = $user->getName();
-		  
-		
+
+
 		}
-		
-		
+
+
 	  }
 
 ?>
@@ -79,6 +79,19 @@ include'user.php';
 
 		<span onclick="openNav()" class="gerir_conta">&#9776; Gerir conta</span>
 
+		<!-- Shortcut para enviar nova mensagem -->
+		<div class="nova_msg_card">
+			<div class="imgBox"><img src="img/nova_msg.jpg">Envie uma nova mensagem!</div>
+			<div class="detalhes_nova_msg">
+				<div class="conteudo_nova_msg">
+					<h3>Envie uma nova mensagem!</h3>
+					<form action="" method="post">
+						<label for="assunto">Assunto</label><br>
+						<input type="text" name="assunto" placeholder="Inserir assunto aqui">
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 
 <!-- JavaScript -->
