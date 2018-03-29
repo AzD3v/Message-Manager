@@ -1,6 +1,9 @@
 <?php
 
+# Incluir a classe department
 include 'classes/department_class.php';
+
+# Incluir a classe message
 include 'classes/message_class.php';
 
 class User {
@@ -38,29 +41,31 @@ class User {
 		$this->surname = $surname;
 		$this->middle_name = $middle_name;
 		$this->username = $username;
-		$this->password = $password;
 		$this->cargo = $cargo;
 		$this->contactList = array();
 		$this->inbox = array();
+		$this->password = $password;
 		$this->outbox = array();
 
 	}
 
-	#Getters
-
+	# Getters
 	public function getName() {
 
 		return $this->name;
+
 	}
 
 	public function getMiddle_name() {
 
 		return $this->middle_name;
+
 	}
 
 	public function getSurname() {
 
 		return $this->surname ;
+
 	}
 
 	public function getFullName() {
@@ -68,38 +73,49 @@ class User {
 		$fullname = ''.$this->name.','.$this->middle_name.''.$this->surname.'';
 
 		return $fullname;
+
+	}
+
+	public function getPassword() {
+
+		return $password = $this->password;
+
 	}
 
 	public function getUsername() {
 
 		return $this->username;
+
 	}
 
 	public function getCargo() {
 
 		return $this->cargo;
+
 	}
 
 	public function getContactList() {
 
 		return $this->contactList;
+
 	}
 
 	public function getInbox() {
 
 		return $this->inbox;
+
 	}
 
 	public function getOutbox() {
 
 		return $this->outbox;
+
 	}
 
-	#setters
-
+	# Setters
 	public function setPassword($password) {
 
-		return $this->password = $password;
+		$this->password = $password;
 
 	}
 
@@ -112,7 +128,9 @@ class User {
 	public function addDepartment($department){
 
 		$this->idDepartment[] = new Department($name);
+
 	}
 
 }
+
 ?>

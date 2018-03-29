@@ -84,7 +84,7 @@ input.form-control.input_assunto_msg {width: 80%; margin-bottom: 5px;}
 /* PÁGINA DE REGISTO DE NOVOS UTILIZADORES */
 
 /* Geral */
-#criar_data {background-color: #4E88C9; color: #fff; height: 110vh;}
+#criar_data {background-color: #4E88C9; color: #fff; height: 100vh;}
 
 /* Botão de regresso */
 #criar_data button {background-color: #030174; font-size: 20px; font-weight: bold;}
@@ -95,9 +95,32 @@ input.form-control.input_assunto_msg {width: 80%; margin-bottom: 5px;}
 #criar_data h1 {margin: 20px; font-weight: bold;}
 
 /* Formulário de registo */
-.form-container {font-size: 25px; margin: 30px 0 0 7%;}
-.form-container label {margin: 25px;}
-.form-container input {margin-top: 25px;}
-.form-container select {margin-top: 25px; height: 40px;}
-.form-container .form-inline {margin: 10px;}
-.form-container .btn {margin: 20px 0 0 35%;}
+.form-registo {font-size: 25px; margin: 30px 0 0 4%;}
+.form-registo label {margin: 25px;}
+.form-registo input {margin-top: 25px;}
+.form-registo select {margin-top: 25px; height: 40px;}
+.form-registo .form-inline {margin: 10px;}
+.form-registo .btn {margin: 20px 0 0 35%;}
+
+/* PÁGINA DE EDIÇÃO DE CONTA */
+
+/* Geral */
+#editar_data {background-color: #4E88C9; color: #fff; height: 100vh;}
+
+/* Botão de regresso */
+#editar_data button {background-color: #030174; font-size: 20px; font-weight: bold;}
+#editar_data button:hover {background-color: #0069D9;}
+
+/* Título */
+#editar_data h1 {margin: 20px; font-weight: bold;}
+
+/* Formulário de edição */
+.form-edicao {font-size: 25px; margin: 30px 0 0 4%;}
+.form-edicao label {margin: 25px;}
+.form-edicao input {margin-top: 25px;}
+.form-edicao select {margin-top: 25px; height: 40px;}
+.form-edicao .form-inline {margin: 10px;}
+.form-edicao .btn {margin: 30px 0 0 38%;}
+
+/* Mensagem de erro em caso de um campo estar vazio */
+.empty_field {font-size: 25px;}

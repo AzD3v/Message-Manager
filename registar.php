@@ -70,7 +70,7 @@
 
             fclose($file);
 
-           echo "<strong><p class='text-center alert alert-primary'>User criado com sucesso!</p></strong>";
+           echo "<strong><p class='text-center alert alert-primary'>Utilizador criado com sucesso!</p></strong>";
 
         }
 
@@ -85,7 +85,7 @@
 
       <!-- Formulário de criação de Users -->
 
-    <div class="form-container">
+    <div class="form-container form-registo">
       <form action="" method="post">
 
         <!-- Nome User -->
