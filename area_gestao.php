@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+<!-- Iniciar a sessão -->
+<?php session_start(); ?>
+
+<!-- Inclusão da classe users -->
+<?php include 'classes/user_class.php'; ?>
 
 <?php
 
-session_start();
-
-include'user.php';
-
+		# OPERAÇÕES COM O FICHEIRO CSV
     $filename = 'data/users.csv';
 
       $file = fopen($filename, 'r'); //ler o ficheiro csv
@@ -24,19 +25,16 @@ include'user.php';
 
 		if($data[0] == $_SESSION['user']) {
 
-
 		  $user = new User($data[2], $data[3], $data[4], $data[5], $data[6], $data[7]);
-
-
 		  $nome = $user->getName();
-
 
 		}
 
-
-	  }
+	}
 
 ?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -81,13 +79,27 @@ include'user.php';
 
 		<!-- Shortcut para enviar nova mensagem -->
 		<div class="nova_msg_card">
-			<div class="imgBox"><img src="img/nova_msg.jpg">Envie uma nova mensagem!</div>
+			<div class="imgBox"><h3 class="text-center">Shortcut de mensagem rápida</h3><img src="img/nova_msg.jpg">Envie uma nova mensagem!</div>
 			<div class="detalhes_nova_msg">
 				<div class="conteudo_nova_msg">
-					<h3>Envie uma nova mensagem!</h3>
+
 					<form action="" method="post">
-						<label for="assunto">Assunto</label><br>
-						<input type="text" name="assunto" placeholder="Inserir assunto aqui">
+						<h3>Envie uma nova mensagem rápida!</h3>
+
+						<!-- Assunto da mensagem -->
+						<div class="form-inline shortcut_msg">
+							<h5>Assunto da mensagem</h5>
+							<input type="text" name="assunto_msg" placeholder="Insira uma breve descrição da mensagem aqui!" class="form-control input_assunto_msg">
+						</div>
+
+						<!-- Destinatários da mensagem -->
+						<div class="form-inline shortcut_msg">
+							<h5>Destinatários da mensagem</h5>
+							<select class="custom-select col-sm-6" name="destinatarios_msg">
+								<option value="">Paulo Cunha</option>
+								<option value="">Miguel Pimentel</option>
+							</select>
+						</div>
 					</form>
 				</div>
 			</div>

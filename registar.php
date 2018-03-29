@@ -1,4 +1,5 @@
-<?php include'User.php';?>
+<!-- Inclusão da classe dos users -->
+<?php include 'classes/user_class.php'; ?>
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -22,7 +23,7 @@
 	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
 	<!-- Título da página -->
-	<title>Registo | Utilizador</title>
+	<title>BusiChat | Registo de novos utilizadores</title>
 </head>
 <body>
 
@@ -78,8 +79,9 @@
     <!-- Área de criação de Users -->
     <div id="criar_data">
 
+			<a href="area_gestao.php"><button class="btn btn-info"><i class="fas fa-arrow-circle-left"></i>Regressar à área de gestão</button></a>
       <!-- Título do formulário -->
-      <h3 class="text-center titulo_form">Adicionar Users</h3>
+      <h1 class="text-center">Registo de novos utilizadores</h1>
 
       <!-- Formulário de criação de Users -->
 
@@ -88,58 +90,60 @@
 
         <!-- Nome User -->
         <div class="form-inline">
-          <label for="nome">Nome do funcionário:</label>
+          <label for="nome">Nome próprio</label>
           <input type="text" name="name" class="form-control col-sm-2">
-		</div>
-		
-		<div class="form-inline">
-          <!-- Nome do meio -->
-          <label for="meio">Nome do meio</label>
-          <input type="text" name="middle_name" class="form-control col-sm-1">
-		</div>
-		
-		<div class="form-inline">
-		  <!-- Apelido -->
-          <label for="apelido">Apelido</label>
-          <input type="text" name="surname" class="form-control col-sm-1">
-        </div>
-		
+
+				<!-- Nome do meio -->
+        <label for="middle_name">Nome do meio</label>
+        <input type="text" name="middle_name" class="form-control col-sm-2">
+
+	  		<!-- Apelido -->
+        <label for="apelido">Apelido</label>
+        <input type="text" name="surname" class="form-control col-sm-2">
+			</div>
+
 		<div class="form-inline">
 		  <!-- Username -->
-          <label for="utilizador">Nome utilizador</label>
-          <input type="text" name="username" class="form-control col-sm-1">
-        </div>
-		
-		<div class="form-inline">
+          <label for="utilizador">Nome de utilizador</label>
+          <input type="text" name="username" class="form-control col-sm-3">
+
 		  <!-- Password -->
-          <label for="palarapasse">Palavra-passe</label>
-          <input type="password" name="password" class="form-control col-sm-1">
+          <label for="password">Palavra-passe</label>
+          <input type="password" name="password" class="form-control col-sm-3">
         </div>
-		
-		<div class="form-inline">
-		  <!-- Retype da password -->	
-          <label for="rescreve">Rescreve a palarapasse</label>
-          <input type="password" name="retype" class="form-control col-sm-1">
-        </div>
-		
+
+			<div class="form-inline">
+		  <!-- Retype da password -->
+        <label for="password_retype">Rescrever a palavra-passe</label>
+        <input type="password" name="password_retype" class="form-control col-sm-3">
+			</div>
+
+			<!-- Departamento ao qual o novo utilizador irá pertencer -->
+			<div class="form-inline">
+				<label for="departamento">Departamento ao qual o utilizador irá pertencer</label>
+				<select name="departamento" class="custom-select col-sm-3">
+					<option selected value="diretor">Diretor Departamento</option>
+	        <option value="secretaria">Secretaria</option>
+	        <option value="administracao">Administração</option>
+				</select>
+			</div>
+
 		<!-- Cargo do User-->
-		
-    <label class="">Cargo que o user vai ter</label>
-      <select name ="cargo" class="custom-select col-sm-2">
-        <option selected value="diretor">Diretor Departamento</option>
+		<div class="form-inline">
+    <label class="">Cargo que o utilizador irá ter</label>
+      <select name="cargo" class="custom-select col-sm-4">
+        <option selected value="diretor">Diretor de Departamento</option>
         <option value="secretaria">Secretaria</option>
         <option value="administracao">Administração</option>
       </select>
-		
+		</div>
 
-		
+			<!-- Botão de submissão -->
+	    <div class="form-group">
+	      <button type="submit" name="formulario_funcionarios" class="btn">Criar novo utilizador</button>
+	    </div>
 
-        <div class="form-group">
-          <button type="submit" name="formulario_funcionarios" class="btn btn-success botao_editar_funcionario">Submeter</button>
-        </div>
+		</form>
 
-      </form>
-
-      </div>
-
-    </div>
+	</div>
+</div>
