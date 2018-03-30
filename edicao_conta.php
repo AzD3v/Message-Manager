@@ -20,7 +20,7 @@
 
 						break;
 
-				}
+			}
 
 			# ACESSO AOS DADOS DO UTILIZADOR PARA PROCEDER À EDIÇÃO
 			if($data[0] == $_SESSION['user']) {
@@ -38,6 +38,8 @@
 
 				# Saber a password atual do utilizador
 				$password_atual = $user->getPassword();
+				
+				
 
 			}
 
@@ -84,34 +86,80 @@
 </head>
 <body>
 
-    <!-- Área de criação de Users -->
+    <!-- Área de edição de Users -->
     <div id="editar_data">
 
 			<?php
-
-					// VALIDAÇÕES DO FORMULÁRIO
-
-					# Verificar se existem campos vazios no formulário
+			
+			if($_SERVER["REQUEST_METHOD"] == "POST") {
+				
+			# Verificar se existem campos vazios no formulário
 					if(empty($name) || empty($middle_name) || empty($surname) || empty($old_password) || empty($new_password) || empty($password_retype)) {
 
 						echo "<p class='alert alert-warning text-center'>Não podem existir campos vazios</p>";
 
-					}
-
-					# Verificar se a palavra-passe introduzida é realmente a antiga palavra-passe
+			}
+			
+			# Verificar se a palavra-passe introduzida é realmente a antiga palavra-passe
 					if($old_password !== $password_atual) {
 
 							echo "<p class='alert alert-warning text-center'>Necessita introduzir a sua antiga palavra-passe</p>";
 
 					}
 
-					# Verificar se a nova palavra-passe e a palavra-passe do retype são iguais
+			# Verificar se a nova palavra-passe e a palavra-passe do retype são iguais
 					if($new_password !== $password_retype) {
 
 						echo "<p class='alert alert-warning text-center'>A nova palavra-passe deverá ser igual à reescrita</p>";
 
 					}
 
+				{
+
+					$filename = 'data/users.csv';
+
+					$file = fopen($filename, 'r'); //ler o ficheiro .csv
+					while (!feof($file))
+
+				{
+
+					$data = fgetcsv($file, 0, ";"); //ir buscar dados ao ficheiro .csv
+
+					if($data == "") {
+
+					break;
+
+					}				
+					
+					$file = fopen("data/users.csv", "w");
+
+
+						$new_name = $user->setName($name);
+						$new_middle_name = $user->setMiddle_name($middle_name);
+						$new_surname = $user->setSurname($surname);
+						$new_pass = $user->setPassword($new_password);
+
+								
+					
+							$user = new User($new_name,$new_middle_name,$new_surname, $data[5], $new_pass, $data[7]);
+
+							$user = (array)$user;
+
+							fputcsv($file, $user, ";");
+
+							
+						
+
+							fclose($file);
+
+					 
+					
+				   }
+				  
+				}
+				
+			}
+				
 					# Verificar se a
 
 			?>

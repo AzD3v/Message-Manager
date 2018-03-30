@@ -15,10 +15,10 @@ class User {
 	private $idDepartment;
 
 	private $name;
+	
+	private $middle_name;
 
 	private $surname;
-
-	private $middle_name;
 
 	private $username;
 
@@ -38,13 +38,13 @@ class User {
 		$this->id = User::$IdUser++;
 		$this->idDepartment = array();
 		$this->name = $name;
-		$this->surname = $surname;
 		$this->middle_name = $middle_name;
+		$this->surname = $surname;
 		$this->username = $username;
+		$this->password = $password;
 		$this->cargo = $cargo;
 		$this->contactList = array();
 		$this->inbox = array();
-		$this->password = $password;
 		$this->outbox = array();
 
 	}
@@ -113,9 +113,28 @@ class User {
 	}
 
 	# Setters
+	
+	public function setName($name) {
+
+		return $this->name = $name;
+
+	}
+	
+	public function setMiddle_name($middle_name) {
+
+		return $this->middle_name = $middle_name;
+
+	}
+	
+	public function setSurname($surname) {
+
+		return $this->surname = $surname;
+
+	}
+	
 	public function setPassword($password) {
 
-		$this->password = $password;
+		return $this->password = $password;
 
 	}
 
