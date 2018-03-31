@@ -1,0 +1,22 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.0"
+    },
+
+		"autoload": {
+
+				"classmap": [
+
+						 "classes"
+
+				]
+
+		},
+
+		"authors": [
+			{
+				"name": "Paulo Cunha",
+				"email": "paulo_cunha1997@outlook.pt"
+			}
+		]
+}

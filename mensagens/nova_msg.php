@@ -1,6 +1,15 @@
 <!-- Iniciar a sessão -->
 <?php session_start(); ?>
 
+<!-- Incluir o ficheiro de autoload do PHPMailer -->
+<?php require "../vendor/autoload.php"; ?>
+
+<!-- Incluir a classe Mensagem -->
+<?php include "../classes/message_class.php"; ?>
+
+<!-- Incluir a classe que contém a configuração do PHPMailer -->
+<?php require '../classes/config.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,13 +36,30 @@
 </head>
 <body>
 
+
 	<div id="nova_msg">
+
 
 		<!-- Botão de regresso à Área de Gestão -->
 		<a href="../area_gestao.php"><button class="btn btn-info"><i class="fas fa-arrow-circle-left"></i>Regressar à área de gestão</button></a>
 
 			<!-- Título da página -->
 			<h1 class="text-center">Envio de nova mensagem</h1>
+
+					<?php
+
+							# PROCESSO DE ENVIO DA MENSAGEM ESCRITA
+							if(isset($_POST['submeter_envio_msg'])) {
+
+									echo "<strong><p class='alert alert-success text-center'>Mensagem enviada com sucesso!</p></strong>";
+
+									# Configuração do PHPMailer
+									$mail = new PHPMailer();
+									
+
+							}
+
+					?>
 
 			<!-- Formulário da nova mensagem -->
 			<div class="form-container form-mensagem">
