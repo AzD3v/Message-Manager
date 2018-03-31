@@ -124,3 +124,21 @@ input.form-control.input_assunto_msg {width: 80%; margin-bottom: 5px;}
 
 /* Mensagem de erro em caso de um campo estar vazio */
 .empty_field {font-size: 25px;}
+
+/* PÁGINA DE ENVIO DE NOVA MENSAGEM */
+
+/* Geral */
+#nova_msg {background-color: #4E88C9; color: #fff; height: 100vh; overflow-y: scroll;}
+
+/* Botão de regresso */
+#nova_msg button {background-color: #030174; font-size: 20px; font-weight: bold;}
+#nova_msg button:hover {background-color: #0069D9;}
+
+/* Título */
+#nova_msg h1 {margin: 20px; font-weight: bold;}
+
+/* Formulário de nova mensagem */
+.form-mensagem {font-size: 25px; margin: 30px 0 0 7%;}
+.form-mensagem select {font-size: 20px; margin-bottom: 20px;}
+.form-mensagem textarea {position: sticky; font-size: 20px;}
+.form-mensagem .btn {margin: 30px 0 0 35%;}

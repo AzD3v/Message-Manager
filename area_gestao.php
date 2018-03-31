@@ -67,7 +67,7 @@
 		<!-- Menu lateral -->
 		<div id="sideMenu" class="sidenav">
 			<a href="javascript:void(0)" class="closeBtnGestao" onclick="closeNav()">&times;</a>
-			<a href="#"><i class="fas fa-comment fa-1x"></i> Escrever nova mensagem</a>
+			<a href="mensagens/nova_msg.php"><i class="fas fa-comment fa-1x"></i> Escrever nova mensagem</a>
 			<a href="#"><i class="fas fa-users fa-1x"></i> Gerir contactos</a>
 			<a href="#"><i class="fas fa-envelope-open fa-1x"></i> Histórico de mensagens recebidas</a>
 			<a href="#"><i class="far fa-envelope fa-1x"></i> Histórico de mensagens enviadas</a>
@@ -88,7 +88,7 @@
 
 						<!-- Assunto da mensagem -->
 						<div class="form-inline shortcut_msg">
-							<h5>Assunto da mensagem</h5>
+							<h5>Assunto da mensagem rápida</h5>
 							<input type="text" name="assunto_msg" placeholder="Insira uma breve descrição da mensagem aqui!" class="form-control input_assunto_msg">
 						</div>
 

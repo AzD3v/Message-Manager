@@ -38,8 +38,8 @@
 
 				# Saber a password atual do utilizador
 				$password_atual = $user->getPassword();
-				
-				
+
+
 
 			}
 
@@ -90,24 +90,24 @@
     <div id="editar_data">
 
 			<?php
-			
+
 			if($_SERVER["REQUEST_METHOD"] == "POST") {
-				
-			# Verificar se existem campos vazios no formulário
+
+					# Verificar se existem campos vazios no formulário
 					if(empty($name) || empty($middle_name) || empty($surname) || empty($old_password) || empty($new_password) || empty($password_retype)) {
 
 						echo "<p class='alert alert-warning text-center'>Não podem existir campos vazios</p>";
 
 			}
-			
-			# Verificar se a palavra-passe introduzida é realmente a antiga palavra-passe
+
+					# Verificar se a palavra-passe introduzida é realmente a antiga palavra-passe
 					if($old_password !== $password_atual) {
 
 							echo "<p class='alert alert-warning text-center'>Necessita introduzir a sua antiga palavra-passe</p>";
 
 					}
 
-			# Verificar se a nova palavra-passe e a palavra-passe do retype são iguais
+					# Verificar se a nova palavra-passe e a palavra-passe do retype são iguais
 					if($new_password !== $password_retype) {
 
 						echo "<p class='alert alert-warning text-center'>A nova palavra-passe deverá ser igual à reescrita</p>";
@@ -116,6 +116,7 @@
 
 				{
 
+					# OPERAÇÕES COM O FICHEIRO CSV
 					$filename = 'data/users.csv';
 
 					$file = fopen($filename, 'r'); //ler o ficheiro .csv
@@ -129,8 +130,8 @@
 
 					break;
 
-					}				
-					
+					}
+
 					$file = fopen("data/users.csv", "w");
 
 
@@ -139,58 +140,51 @@
 						$new_surname = $user->setSurname($surname);
 						$new_pass = $user->setPassword($new_password);
 
-								
-					
+
+
 							$user = new User($new_name,$new_middle_name,$new_surname, $data[5], $new_pass, $data[7]);
 
 							$user = (array)$user;
 
 							fputcsv($file, $user, ";");
 
-							
-						
-
 							fclose($file);
 
-					 
-					
 				   }
-				  
+
 				}
-				
+
 			}
-				
-					# Verificar se a
 
 			?>
 
-			<!-- Botão de regresso -->
-			<a href="area_gestao.php"><button class="btn btn-info"><i class="fas fa-arrow-circle-left"></i>Regressar à área de gestão</button></a>
+		<!-- Botão de regresso à Área de Gestão -->
+		<a href="area_gestao.php"><button class="btn btn-info"><i class="fas fa-arrow-circle-left"></i>Regressar à área de gestão</button></a>
 
-			<!-- Título do formulário -->
-      <h1 class="text-center">Edição de dados da conta</h1>
+		<!-- Título do formulário -->
+    <h1 class="text-center">Edição de dados da conta</h1>
 
-      <!-- Formulário de criação de Users -->
-
+    <!-- Formulário de criação de Users -->
     <div class="form-container form-edicao">
 
 			<!-- Formulário de edição de conta -->
 			<form action="" method="post">
 
-        <!-- Nome User -->
-        <div class="form-inline">
-          <label for="nome">Nome próprio</label>
-          <input type="text" name="name" value="<?php echo $nome; ?>" class="form-control col-sm-2">
-	<!-- Nome do meio -->
-        <label for="middle_name">Nome do meio</label>
-        <input type="text" name="middle_name" value="<?php echo $middle_name; ?>" class="form-control col-sm-2">
+        	<!-- Nome User -->
+        	<div class="form-inline">
+          	<label for="nome">Nome próprio</label>
+          	<input type="text" name="name" value="<?php echo $nome; ?>" class="form-control col-sm-2">
 
-	  		<!-- Apelido -->
-        <label for="apelido">Apelido</label>
-        <input type="text" name="surname" value="<?php echo $surname; ?>" class="form-control col-sm-2">
-			</div>
+						<!-- Nome do meio -->
+	        	<label for="middle_name">Nome do meio</label>
+	        	<input type="text" name="middle_name" value="<?php echo $middle_name; ?>" class="form-control col-sm-2">
 
-		<div class="form-inline">
+	  				<!-- Apelido -->
+        		<label for="apelido">Apelido</label>
+        		<input type="text" name="surname" value="<?php echo $surname; ?>" class="form-control col-sm-2">
+				  </div>
+
+				<div class="form-inline">
 
 					<!-- Old password -->
           <label for="password_old">Antiga palavra-passe</label>
@@ -199,7 +193,7 @@
 					<!-- Nova password -->
 	        <label for="password_new">Nova palavra-passe</label>
 	        <input type="password" name="new_password" class="form-control col-sm-3">
-			</div>
+				 </div>
 
 			<div class="form-inline">
 				<!-- Retype da password -->
