@@ -10,7 +10,7 @@
 <?php require '../classes/user_class.php'; ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
 
 	<!-- MetaTags -->
@@ -74,10 +74,9 @@
 						<!-- Escolha dos contactos a receber a mensagem -->
 						<div class="form-group">
 							<label for="contactos_msg">Contactos que receberão a mensagem</label>
-						
+
 							<select name="users" class="custom-select col-sm-2">
-							
-							
+
 
 							<?php
 
@@ -93,31 +92,32 @@
 									if($data[0] == "") {
 
 									break;
-									
-									
+
+
 
 								}
-								
+
 									  $user = new User($data[2], $data[3], $data[4],$data[5],$data[6],$data[7]);
-									  
+
 									  if(!$data[0] == $_SESSION['user']) {
 
 									  $nome = $user->getName();
 
-									  echo "<option value='$nome'>$nome</option>";
+									  echo "<option value='$nome'>$nome</option><br>";
+
 
 									}
-									
+
 								}
-									
+
 
 							?>
-							
+
 						</div>
 
 						<!-- Corpo da mensagem -->
 						<div class="form-group">
-							<textarea name="text_msg" rows="8" cols="110" placeholder="Escreva aqui a sua mensagem..."></textarea>
+							<textarea name="text_msg" rows="5" cols="110" placeholder="Escreva aqui a sua mensagem..."></textarea>
 						</div>
 
 						<!-- Botão de mensagem -->

@@ -163,3 +163,17 @@ input.form-control.input_assunto_msg {width: 80%; margin-bottom: 5px;}
 #gerir_contactos .btn_add_contacto:hover {background-color: #27ff0b;}
 #gerir_contactos .btn_del_contacto {background-color: #BD2130; margin: 0 0 20px -7px;}
 #gerir_contactos .btn_del_contacto:hover {background-color: #a20337;}
+
+/* PÁGINA QUE CONTÉM A LISTAGEM DAS MENSAGENS RECEBIDAS */
+#msg_recebidas_msg_enviadas {background-color: #4E88C9; color: #fff; height: 100vh; overflow-y: scroll;}
+
+/* Botão de regresso */
+#msg_recebidas_msg_enviadas button {background-color: #030174; font-size: 20px; font-weight: bold;}
+#msg_recebidas_msg_enviadas button:hover {background-color: #0069D9;}
+
+/* Título */
+#msg_recebidas_msg_enviadas h1 {margin: 20px; font-weight: bold;}
+
+
+/* PÁGINA QUE CONTÉM A LISTAGEM DAS MENSAGENS ENVIADAS */
+#msg_recebidas_msg_enviadas {background-color: #4E88C9; color: #fff; height: 100vh; overflow-y: scroll;}
