@@ -68,7 +68,7 @@
 		<div id="sideMenu" class="sidenav">
 			<a href="javascript:void(0)" class="closeBtnGestao" onclick="closeNav()">&times;</a>
 			<a href="mensagens/nova_msg.php"><i class="fas fa-comment fa-1x"></i> Escrever nova mensagem</a>
-			<a href="#"><i class="fas fa-users fa-1x"></i> Gerir contactos</a>
+			<a href="mensagens/gerir_contactos.php"><i class="fas fa-users fa-1x"></i> Gerir contactos</a>
 			<a href="#"><i class="fas fa-envelope-open fa-1x"></i> Histórico de mensagens recebidas</a>
 			<a href="#"><i class="far fa-envelope fa-1x"></i> Histórico de mensagens enviadas</a>
 			<a href="edicao_conta.php"><i class="fas fa-cogs fa-1x"></i> Editar dados da conta</a>
