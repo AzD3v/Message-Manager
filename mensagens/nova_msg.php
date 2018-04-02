@@ -54,7 +54,7 @@
 
 									# Configuração do PHPMailer
 									$mail = new PHPMailer();
-									
+
 
 							}
 
@@ -63,7 +63,6 @@
 			<!-- Formulário da nova mensagem -->
 			<div class="form-container form-mensagem">
 
-				<!-- Formulário de edição de conta -->
 				<form action="" method="post">
 
 	        	<!-- Assunto da nova mensagem -->

@@ -17,7 +17,7 @@ class User {
 	private $idDepartment;
 
 	private $name;
-	
+
 	private $middle_name;
 
 	private $surname;
@@ -115,25 +115,25 @@ class User {
 	}
 
 	# Setters
-	
+
 	public function setName($name) {
 
 		return $this->name = $name;
 
 	}
-	
+
 	public function setMiddle_name($middle_name) {
 
 		return $this->middle_name = $middle_name;
 
 	}
-	
+
 	public function setSurname($surname) {
 
 		return $this->surname = $surname;
 
 	}
-	
+
 	public function setPassword($password) {
 
 		return $this->password = $password;

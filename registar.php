@@ -28,59 +28,60 @@
 <body>
 
 
-    <?php
 
-        if(!file_exists("data/users.csv")) {
-
-            $file = fopen("data/users.csv", "w");
-            fclose($file);
-
-            }
-
-
-        if($_SERVER["REQUEST_METHOD"] == "POST") {
-
-            $file=fopen("data/users.csv", "r");
-
-            while (!feof($file)) {
-
-              $data=fgetcsv($file, 0, ";");
-
-			  if($data[0]==""){
-
-			  break;
-
-			  }
-
-              $user = new User($data[1], $data[2], $data[3], $data[4], $data[5], $data[6]);
-
-
-            }
-
-            fclose($file);
-
-            $user = new User($_POST['name'], $_POST['middle_name'], $_POST['surname'],
-							 $_POST['username'], $_POST['password'], $_POST['cargo']);
-
-            $user = (array)$user;
-
-            $file = fopen("data/users.csv", "a");
-
-            fputcsv($file, $user, ";");
-
-            fclose($file);
-
-           echo "<strong><p class='text-center alert alert-primary'>Utilizador criado com sucesso!</p></strong>";
-
-        }
-
-    ?>
 
     <!-- Área de criação de Users -->
     <div id="criar_data">
 
 			<a href="area_gestao.php"><button class="btn btn-info"><i class="fas fa-arrow-circle-left"></i>Regressar à área de gestão</button></a>
-      <!-- Título do formulário -->
+
+			<?php
+
+					if(!file_exists("data/users.csv")) {
+
+							$file = fopen("data/users.csv", "w");
+							fclose($file);
+
+							}
+
+
+					if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+							$file=fopen("data/users.csv", "r");
+
+							while (!feof($file)) {
+
+								$data=fgetcsv($file, 0, ";");
+
+					if($data[0]==""){
+
+					break;
+
+					}
+
+								$user = new User($data[1], $data[2], $data[3], $data[4], $data[5], $data[6]);
+
+
+							}
+
+							fclose($file);
+
+							$user = new User($_POST['name'], $_POST['middle_name'], $_POST['surname'],
+								 $_POST['username'], $_POST['password'], $_POST['cargo']);
+
+							$file = fopen("data/users.csv", "a");
+
+							fputcsv($file, (array)$user, ";");
+
+							fclose($file);
+
+						 echo "<strong><p class='text-center alert alert-primary'>Utilizador criado com sucesso!</p></strong>";
+
+					}
+
+			?>
+
+		  <!-- Título do formulário -->
       <h1 class="text-center">Registo de novos utilizadores</h1>
 
       <!-- Formulário de criação de Users -->
