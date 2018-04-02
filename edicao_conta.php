@@ -131,6 +131,8 @@
 					break;
 
 					}
+					
+					if(isset($_SESSION['user'])) {
 
 					$file = fopen("data/users.csv", "w");
 
@@ -151,10 +153,12 @@
 							fclose($file);
 
 				   }
-
+				   
 				}
 
 			}
+
+		}
 
 			?>
 

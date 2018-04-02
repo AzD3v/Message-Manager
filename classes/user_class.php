@@ -9,6 +9,8 @@ include 'message_class.php';
 class User {
 
 	Static $IdUser = 0;
+	
+	static $nUsers = 0;
 
 	private $id;
 
@@ -46,7 +48,7 @@ class User {
 		$this->contactList = array();
 		$this->inbox = array();
 		$this->outbox = array();
-
+		++User::$nUsers;
 	}
 
 	# Getters

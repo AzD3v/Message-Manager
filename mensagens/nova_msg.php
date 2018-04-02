@@ -2,13 +2,12 @@
 <?php session_start(); ?>
 
 <!-- Incluir o ficheiro de autoload do PHPMailer -->
-<?php require "../vendor/autoload.php"; ?>
-
-<!-- Incluir a classe Mensagem -->
-<?php include "../classes/message_class.php"; ?>
+<?php require '../vendor/autoload.php'; ?>
 
 <!-- Incluir a classe que contém a configuração do PHPMailer -->
 <?php require '../classes/config.php'; ?>
+
+<?php require '../classes/user_class.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,13 +74,45 @@
 						<!-- Escolha dos contactos a receber a mensagem -->
 						<div class="form-group">
 							<label for="contactos_msg">Contactos que receberão a mensagem</label>
-							<br>
-							<select class="custom-select col-sm-3" name="contactos_msg">
-								<option value="">Funcionário 1</option>
-								<option value="">Funcionário 2</option>
-								<option value="">Funcionário 3</option>
-								<option value="">Funcionário 4</option>
-							</select>
+						
+							<select name="users" class="custom-select col-sm-2">
+							
+							
+
+							<?php
+
+								$filename = '../data/users.csv';
+
+									$file = fopen($filename, 'r'); //ler o ficheiro
+									while (!feof($file))
+
+									{
+
+									  $data = fgetcsv($file, 0, ";"); //ir buscar dados ao csv
+
+									if($data[0] == "") {
+
+									break;
+									
+									
+
+								}
+								
+									  $user = new User($data[2], $data[3], $data[4],$data[5],$data[6],$data[7]);
+									  
+									  if(!$data[0] == $_SESSION['user']) {
+
+									  $nome = $user->getName();
+
+									  echo "<option value='$nome'>$nome</option>";
+
+									}
+									
+								}
+									
+
+							?>
+							
 						</div>
 
 						<!-- Corpo da mensagem -->
