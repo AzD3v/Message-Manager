@@ -1,14 +1,16 @@
 <?php
 
 # Incluir a classe department
-include 'classes/department_class.php';
+include 'department_class.php';
 
 # Incluir a classe message
-include 'classes/message_class.php';
+include 'message_class.php';
 
 class User {
 
 	Static $IdUser = 0;
+	
+	static $nUsers = 0;
 
 	private $id;
 
@@ -46,7 +48,7 @@ class User {
 		$this->contactList = array();
 		$this->inbox = array();
 		$this->outbox = array();
-
+		++User::$nUsers;
 	}
 
 	# Getters
