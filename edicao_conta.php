@@ -209,9 +209,8 @@
 			<div class="form-inline">
 				<label for="departamento">Mudança de departamento</label>
 				<select name="departamento" class="custom-select col-sm-3">
-					<option selected value="diretor">A</option>
-	        <option value="secretaria">B</option>
-	        <option value="administracao">C</option>
+					<option selected value="secretaria">Secretaria</option>
+					<option value="administracao">Administração</option>
 				</select>
 			</div>
 

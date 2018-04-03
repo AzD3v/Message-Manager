@@ -12,11 +12,14 @@ while(!feof($file)){
   $user = fgetcsv($file,0,";");
 
   if ($username == $user[5] && $password == $user[6]){
-	  
+
     $idUser = $user[0];
+		$name = $user[2];
     fclose($file);
     session_start();
     $_SESSION['user'] = $idUser;
+		$_SESSION['username'] = $username;
+		$_SESSION['name'] = $name;
     header('location: area_gestao.php');
     break;
   }

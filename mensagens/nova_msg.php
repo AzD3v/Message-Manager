@@ -1,12 +1,6 @@
 <!-- Iniciar a sessão -->
 <?php session_start(); ?>
 
-<!-- Incluir o ficheiro de autoload do PHPMailer -->
-<?php require '../vendor/autoload.php'; ?>
-
-<!-- Incluir a classe que contém a configuração do PHPMailer -->
-<?php require '../classes/config.php'; ?>
-
 <?php require '../classes/user_class.php'; ?>
 
 <!DOCTYPE html>
@@ -42,40 +36,76 @@
 		<!-- Botão de regresso à Área de Gestão -->
 		<a href="../area_gestao.php"><button class="btn btn-info"><i class="fas fa-arrow-circle-left"></i>Regressar à área de gestão</button></a>
 
+		<?php
+
+		if(!file_exists("../data/mensagens.csv")) {
+
+				$file = fopen("../data/mensagens.csv", "w");
+				fclose($file);
+
+				}
+
+
+		if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+				$file = fopen("../data/mensagens.csv", "r");
+
+				while (!feof($file)) {
+
+					$data = fgetcsv($file, 0, ";");
+
+					if($data[0]==""){
+
+						break;
+
+					}
+
+					$message = new Message($data[1], $data[2], $data[3], $data[4], $data[5], $data[6]);
+
+				}
+
+				fclose($file);
+
+				$from = $_SESSION['username'];
+
+				$message = new Message($_POST['to'], $from, $_POST['subject'],
+					 $_POST['text'], $_POST['date_hour']);
+
+				$file = fopen("../data/mensagens.csv", "a");
+
+				$message = (array)$message;
+
+				fputcsv($file, $message, ";");
+
+				fclose($file);
+
+						echo "<strong><p class='text-center alert alert-primary'>Mensagem enviada com sucesso!</p></strong>";
+
+		}
+
+?>
+
+
+
 			<!-- Título da página -->
 			<h1 class="text-center">Envio de nova mensagem</h1>
-
-					<?php
-
-							# PROCESSO DE ENVIO DA MENSAGEM ESCRITA
-							if(isset($_POST['submeter_envio_msg'])) {
-
-									echo "<strong><p class='alert alert-success text-center'>Mensagem enviada com sucesso!</p></strong>";
-
-									# Configuração do PHPMailer
-									$mail = new PHPMailer();
-
-
-							}
-
-					?>
 
 			<!-- Formulário da nova mensagem -->
 			<div class="form-container form-mensagem">
 
-				<form action="" method="post">
+				<form action="" method="post" enctype="multipart/form-data">
 
 	        	<!-- Assunto da nova mensagem -->
 	        	<div class="form-group">
 	          	<label for="subject">Assunto da sua nova mensagem</label>
-	          	<input type="text" name="subject_msg" placeholder="Escreve aqui uma breve descrição da mensagem que pretende enviar" class="form-control col-sm-7">
+	          	<input type="text" name="subject" placeholder="Escreve aqui uma breve descrição da mensagem que pretende enviar" class="form-control col-sm-7">
 						</div>
 
 						<!-- Escolha dos contactos a receber a mensagem -->
 						<div class="form-group">
 							<label for="contactos_msg">Contactos que receberão a mensagem</label>
 
-							<select name="users" class="custom-select col-sm-2">
+							<select name="to" class="custom-select col-sm-2">
 
 
 							<?php
@@ -117,8 +147,20 @@
 
 						<!-- Corpo da mensagem -->
 						<div class="form-group">
-							<textarea name="text_msg" rows="5" cols="110" placeholder="Escreva aqui a sua mensagem..."></textarea>
+							<textarea name="text" rows="5" cols="110" placeholder="Escreva aqui a sua mensagem..."></textarea>
 						</div>
+
+						<!-- Data da mensagem -->
+						<div class="form-group">
+							 <label for="data">Data da mensagem</label>
+							 <input type="date" name="date_hour" value="<?php date('Y-m-d'); ?>">
+						</div>
+
+						<!-- Ficheiros de anexo -->
+						<div class="form-group">
+				      <label for="image">Anexar ficheiros</label>
+				      <input type="file" name="attachment" class="anexos_msg">
+				    </div>
 
 						<!-- Botão de mensagem -->
 						<div class="form-group">

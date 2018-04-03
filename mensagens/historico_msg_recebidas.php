@@ -1,12 +1,6 @@
 <!-- Iniciar a sessão -->
 <?php session_start(); ?>
 
-<!-- Incluir o ficheiro de autoload do PHPMailer -->
-<?php require "../vendor/autoload.php"; ?>
-
-<!-- Incluir a classe que contém a configuração do PHPMailer -->
-<?php require '../classes/config.php'; ?>
-
 <!-- Incluir a classe Users-->
 <?php include "../classes/user_class.php"; ?>
 
@@ -45,7 +39,74 @@
 			<!-- Título da página -->
 			<h1 class="text-center">A sua lista de mensagens recebidas</h1>
 
-	</div>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<th>Para</th>
+					<th>De</th>
+					<th>Assunto</th>
+					<th>Descrição</th>
+					<th>Data/Hora</th>
+					<th>Anexo</th>
+				</thead>
+				<tbody>
+
+				<?php
+
+				$filename = '../data/mensagens.csv';
+
+					$file = fopen($filename, 'r'); //ler o ficheiro
+					while (!feof($file))
+
+					{
+
+						$data = fgetcsv($file, 0, ";"); //ir buscar dados ao csv
+
+							if($data[0]==""){
+
+									break;
+
+							}
+
+
+									$mensagem = new Message($data[1], $data[2], $data[3], $data[4], $data[5], $data[6]);
+
+									if($_SESSION['name'] === $data[1]) {
+
+									echo "<tr>";
+									$id = $mensagem->getId();
+									$to = $mensagem->getTo();
+									$from = $mensagem->getFrom();
+									$subject = $mensagem->getSubject();
+									$text = $mensagem->getText();
+									$date_hour = $mensagem->getDate_hour();
+									$attachment = $mensagem->getAttachment();
+									echo "</tr>";
+
+
+						echo "<td>{$to}</td>";
+						echo "<td>{$from}</td>";
+						echo "<td>{$subject}</td>";
+						echo "<td>{$text}</td>";
+						echo "<td>{$date_hour}</td>";
+						echo "<td>{$attachment}</td>";
+
+
+
+		} else {
+
+		break;
+
+		}
+
+		}
+
+
+
+				?>
+
+			</tbody>
+		</table>
+		</div>
 
 <!-- JavaScript -->
 <script type="text/javascript" src="js/main.js"></script>

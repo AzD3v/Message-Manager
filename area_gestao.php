@@ -104,41 +104,112 @@
 			<div class="detalhes_nova_msg">
 				<div class="conteudo_nova_msg">
 
+					<?php
+
+					if(!file_exists("data/mensagens.csv")) {
+
+							$file = fopen("data/mensagens.csv", "w");
+							fclose($file);
+
+							}
+
+
+					if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+							$file = fopen("data/mensagens.csv", "r");
+
+							while (!feof($file)) {
+
+								$data = fgetcsv($file, 0, ";");
+
+								if($data[0]==""){
+
+									break;
+
+								}
+
+								$message = new Message($data[1], $data[2], $data[3], $data[4], $data[5], $data[6]);
+
+							}
+
+							fclose($file);
+
+							$from = $_SESSION['username'];
+
+							$message = new Message($_POST['to'], $from, $_POST['subject'],
+								 $_POST['text'], $_POST['date_hour']);
+
+							$file = fopen("data/mensagens.csv", "a");
+
+							$message = (array)$message;
+
+							fputcsv($file, $message, ";");
+
+							fclose($file);
+
+									echo "<strong><p class='text-center alert alert-primary'>Mensagem enviada com sucesso!</p></strong>";
+
+					}
+
+			?>
+
+
+
 					<form action="" method="post">
 						<h3>Envie uma nova mensagem rápida!</h3>
 
 						<!-- Assunto da mensagem -->
 						<div class="form-inline shortcut_msg">
 							<h5>Assunto da mensagem rápida</h5>
-							<input type="text" name="assunto_msg" placeholder="Insira uma breve descrição da mensagem aqui!" class="form-control input_assunto_msg">
+							<input type="text" name="subject" placeholder="Insira uma breve descrição da mensagem aqui!" class="form-control input_assunto_msg">
 						</div>
 
 						<!-- Destinatários da mensagem -->
 						<div class="form-inline shortcut_msg">
 							<h5>Destinatários da mensagem</h5>
-							<select class="custom-select col-sm-6" name="destinatarios_msg">
-								<option value="">Paulo Cunha</option>
-								<option value="">Miguel Pimentel</option>
+							<select class="custom-select col-sm-6" name="to">
+
+								<?php
+
+									$filename = 'data/users.csv';
+
+										$file = fopen($filename, 'r'); //ler o ficheiro
+										while (!feof($file))
+
+										{
+
+										  $data = fgetcsv($file, 0, ";"); //ir buscar dados ao csv
+
+										if($data[0] == "") {
+
+										break;
+
+
+
+									}
+
+										  $user = new User($data[2], $data[3], $data[4],$data[5],$data[6],$data[7]);
+
+										  if(!$data[0] == $_SESSION['user']) {
+
+										  $nome = $user->getName();
+
+										  echo "<option value='$nome'>$nome</option><br>";
+
+										}
+
+									}
+
+								?>
 							</select>
 						</div>
+
+							<input type="submit" name="submeter_msg_rapida" value="Enviar mensagem!" class="btn btn-primary">
+
 					</form>
 				</div>
 			</div>
 		</div>
-
-	<!-- Shortcut da caixa de saída -->
-	<div class="outboxFlip">
-		<div class="outboxFlipFront"><h3 class="text-center">Caixa de saída</h3></div>
-		<div class="outboxFlipBack"><h5 class="text-center">Mensagens enviadas</h5></div>
-	</div>
-
-	<!-- Shortcut da caixa de entrada -->
-	<div class="inboxFlip">
-		<div class="inboxFlipFront"><h3 class="text-center">Caixa de entrada</h3></div>
-		<div class="inboxFlipBack"><h5 class="text-center">Mensagens recebidas</h5></div>
-	</div>
-
-
 </div>
 
 <!-- JavaScript -->

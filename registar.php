@@ -37,6 +37,8 @@
 
 			<?php
 
+
+
 					if(!file_exists("data/users.csv")) {
 
 							$file = fopen("data/users.csv", "w");
@@ -64,10 +66,28 @@
 
 							}
 
+
 							fclose($file);
 
+							function Createpassword(){
+
+							$alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+							$pass = array(); //remember to declare $pass as an array
+								$alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+
+									for ($i = 0; $i < 8; $i++) {
+										$n = rand(0, $alphaLength);
+										$pass[] = $alphabet[$n];
+									}
+
+									return implode($pass);
+							}
+
+							$password = Createpassword();
+
+
 							$user = new User($_POST['name'], $_POST['middle_name'], $_POST['surname'],
-								 $_POST['username'], $_POST['password'], $_POST['cargo']);
+								 $_POST['username'], $password, $_POST['cargo']);
 
 							$file = fopen("data/users.csv", "a");
 
@@ -75,7 +95,7 @@
 
 							fclose($file);
 
-						 echo "<strong><p class='text-center alert alert-primary'>Utilizador criado com sucesso!</p></strong>";
+						 		echo "<strong><p class='text-center alert alert-primary'>Utilizador criado com sucesso!</p></strong>";
 
 					}
 
@@ -108,22 +128,13 @@
           <label for="utilizador">Nome de utilizador</label>
           <input type="text" name="username" class="form-control col-sm-3">
 
-		  <!-- Password -->
-          <label for="password">Palavra-passe</label>
-          <input type="password" name="password" class="form-control col-sm-3">
         </div>
 
-			<div class="form-inline">
-		  <!-- Retype da password -->
-        <label for="password_retype">Rescrever a palavra-passe</label>
-        <input type="password" name="password_retype" class="form-control col-sm-3">
-			</div>
-
-			<!-- Departamento ao qual o novo utilizador irá pertencer -->
+		<!-- Departamento ao qual o novo utilizador irá pertencer -->
 			<div class="form-inline">
 				<label for="departamento">Departamento ao qual o utilizador irá pertencer</label>
 				<select name="departamento" class="custom-select col-sm-3">
-					<option selected value="diretor">Diretor Departamento</option>
+					<option selected value="secretaria">Escolha a opção</option>
 	        <option value="secretaria">Secretaria</option>
 	        <option value="administracao">Administração</option>
 				</select>
@@ -133,9 +144,9 @@
 		<div class="form-inline">
     <label class="">Cargo que o utilizador irá ter</label>
       <select name="cargo" class="custom-select col-sm-4">
-        <option selected value="diretor">Diretor de Departamento</option>
-        <option value="secretaria">Secretaria</option>
-        <option value="administracao">Administração</option>
+        <option selected value="diretor">Escolha a opção</option>
+        <option value="secretaria">Funcionario</option>
+        <option value="diretor">Gestor Departamento</option>
       </select>
 		</div>
 

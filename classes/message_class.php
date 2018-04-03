@@ -20,18 +20,25 @@ class Message {
 
 	private $attachment;
 
-
+	# Método construtor
 	public function __construct($to, $from, $subject, $text, $date_hour) {
 
 		$this->id = Message::$IdMessage++;
-		$this->to = array();
-		$this->from = array();
+		$this->to = $to;
+		$this->from = $from;
 		$this->subject = $subject;
 		$this->text = $text;
 		$this->date_hour = $date_hour;
 		++Message::$nMessages;
 	}
 
+	# Getters (Métodos seletores)
+
+	public function getId() {
+
+		return $this->id;
+
+	}
 
 	public function getTo() {
 

@@ -1,15 +1,15 @@
 <?php
 
-# Incluir a classe department
+# Incluir a classe Department
 include 'department_class.php';
 
-# Incluir a classe message
+# Incluir a classe Message
 include 'message_class.php';
 
 class User {
 
 	Static $IdUser = 0;
-	
+
 	static $nUsers = 0;
 
 	private $id;
@@ -49,9 +49,10 @@ class User {
 		$this->inbox = array();
 		$this->outbox = array();
 		++User::$nUsers;
+
 	}
 
-	# Getters
+	# Getters (Métodos seletores)
 	public function getName() {
 
 		return $this->name;
@@ -114,7 +115,7 @@ class User {
 
 	}
 
-	# Setters
+	# Setters (Métodos modificadores)
 
 	public function setName($name) {
 
